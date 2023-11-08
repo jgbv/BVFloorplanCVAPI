@@ -16,10 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
+def homepage(request):
+    return HttpResponse("BeyondView Floor Plan API")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('bvim/', include('bvim.urls')),
+    path('', homepage, name="homepage")
 ]
 
 
